@@ -1,6 +1,6 @@
 typedef struct __result {
-    unsigned long comparacoes;
-    unsigned long trocas;
+    unsigned long long comparacoes;
+    unsigned long long trocas;
     char nome[30];
 } RESULTADOS;
 

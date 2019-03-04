@@ -13,8 +13,8 @@ void mostrar(unsigned long * a, unsigned long n) {
 
 void mostrar_resultados(RESULTADOS r) {
     printf("Resultado do algoritmo %s\n", r.nome);
-    printf(" %lu comparacoes\n", r.comparacoes);
-    printf(" %lu trocas\n", r.trocas);
+    printf(" %llu comparacoes\n", r.comparacoes);
+    printf(" %llu trocas\n", r.trocas);
     printf("\n");
     return;
 }
@@ -119,10 +119,12 @@ void insert_sort(unsigned long *a, unsigned long n, RESULTADOS *r) {
      strcpy(r->nome, "Insert Sort");
      for (i = 1; i < n; i++) {
          x = a[i];
-         for (j = i-1; (j >= 0) && (x < a[j]); j--) {
-            a[j+1] = a[j];
-         }    
-         a[j+1] = x;
+         for (j = i; (j > 0) && (x < a[j-1]); j--) {
+         	r->comparacoes++;
+         	r->trocas++;
+         	a[j] = a[j-1];
+		 }
+         a[j] = x;
      }
      return;
 } 
