@@ -3,11 +3,11 @@
 #include <time.h>
 #include "ordenacao.h"
 
-#define TAM 100
-//unsigned long TAM;
+#define TAM 1000000
+//unsigned long long TAM;
 
-unsigned long arquivo_original[TAM];
-unsigned long arquivo_para_ordenar[TAM];
+unsigned long long arquivo_original[TAM];
+unsigned long long arquivo_para_ordenar[TAM];
 
 int main(int argc, char *argv[]) {
 	int i, j, opt, qtd, ord;
@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 	srand (time(NULL));
 
 	/*printf("Digite o tamanho do vetor: ");
-	scanf("%d", &TAM);
+	scanf("%llu", &TAM);
 	if (!TAM) exit(1);*/
 		
 	printf("\t\tMenu\n\n");
@@ -29,8 +29,8 @@ int main(int argc, char *argv[]) {
 	} while (ord < 0);
 	switch (ord) {
 		case 2:
-			for (i = 1; i <= TAM; i++) {
-				arquivo_original[i] = i;
+			for (i = 0; i < TAM - 1; i++) {
+				arquivo_original[i] = i+1;
 			}
 			break;
 		case 3:
