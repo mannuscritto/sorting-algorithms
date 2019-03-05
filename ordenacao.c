@@ -162,7 +162,7 @@ void quick_sort(unsigned long long *a, unsigned long long n, RESULTADOS *r) {
 void __quick_sort(unsigned long long *a, unsigned long long int Esq, unsigned long long int Dir, RESULTADOS *r) {
       unsigned long long x, i, j, t;
      
-     x = a[Esq + (Dir - Esq)/2];
+     x = a[(Esq + Dir) / 2];
      
      i = Esq;
      j = Dir;
@@ -182,36 +182,3 @@ void __quick_sort(unsigned long long *a, unsigned long long int Esq, unsigned lo
      if (j > Esq) __quick_sort(a, Esq, j, r);
      if (i < Dir) __quick_sort(a, i, Dir, r);
 }
-
-/*void __quick_sort(unsigned long long *a, unsigned long long Esq, unsigned long long Dir, RESULTADOS *r) {
-    unsigned long long i, j, x, t;
-     
-    i = Esq;
-    j = Dir;
-    x = a[(Esq + (Dir - Esq)) / 2];
-     
-    while(i <= j) {
-        while(a[i] < x && i < Dir) {
-            i++;
-        }
-        while(a[j] > x && j > Esq) {
-            j--;
-        }
-        r->comparacoes++;
-        if(i <= j) {
-        	r->trocas++;
-            t = a[i];
-            a[i] = a[j];
-            a[j] = t;
-            i++;
-            j--;
-        }
-    }
-     
-    if(j > Esq) {
-        __quick_sort(a, Esq, j, r);
-    }
-    if(i < Dir) {
-        __quick_sort(a, i, Dir, r);
-    }
-}*/
